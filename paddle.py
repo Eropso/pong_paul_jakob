@@ -1,3 +1,4 @@
+
 from spillObjekt import SpillObjekt
 
 class Paddle(SpillObjekt):

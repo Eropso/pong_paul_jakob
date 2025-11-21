@@ -11,6 +11,7 @@ FPS = 60
 
 skjerm = pygame.display.set_mode((bredde, hoyde))
 pygame.display.set_caption('Pong')
+clock = pygame.time.Clock()
 
 class Spill:
     def __init__(self):
@@ -21,6 +22,7 @@ class Spill:
             for hendelse in pygame.event.get():
                 if hendelse.type == pygame.QUIT:
                     self.aktiv = False
+            clock.tick(FPS)
 
 
 Spill().loop()

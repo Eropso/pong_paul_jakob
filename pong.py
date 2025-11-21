@@ -13,7 +13,7 @@ skjerm = pygame.display.set_mode((bredde, hoyde))
 pygame.display.set_caption('Pong')
 clock = pygame.time.Clock()
 
-ball = SpillObjekt(380, 280, 20, 20)
+ball = Ball(380, 280, 20, 20, 5, 5)
 paddle_venstre = Paddle(50, 250, 20, 100, 5)
 paddle_hoyre = Paddle(730, 250, 20, 100, 5)
 
@@ -27,7 +27,10 @@ class Spill:
                 if hendelse.type == pygame.QUIT:
                     self.aktiv = False
 
-        
+            ball.oppdater()
+
+            skjerm.fill((0, 0, 0))
+
             ball.tegn()
             paddle_venstre.tegn()
             paddle_hoyre.tegn()

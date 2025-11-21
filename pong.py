@@ -27,7 +27,7 @@ class Spill:
                 if hendelse.type == pygame.QUIT:
                     self.aktiv = False
 
-            ball.kollisjon()
+            ball.kollisjon(paddle_venstre, paddle_hoyre)
             ball.oppdater()
 
             taster = pygame.key.get_pressed()

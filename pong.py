@@ -14,6 +14,8 @@ pygame.display.set_caption('Pong')
 clock = pygame.time.Clock()
 
 ball = SpillObjekt(380, 280, 20, 20)
+paddle_venstre = Paddle(50, 250, 20, 100, 5)
+paddle_hoyre = Paddle(730, 250, 20, 100, 5)
 
 class Spill:
     def __init__(self):
@@ -27,6 +29,8 @@ class Spill:
 
         
             ball.tegn()
+            paddle_venstre.tegn()
+            paddle_hoyre.tegn()
 
             pygame.display.flip()
             clock.tick(FPS)

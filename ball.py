@@ -15,13 +15,17 @@ class Ball(SpillObjekt):
     def kollisjon(self, paddle_venstre, paddle_hoyre):
         #kollisjon venstre paddle
         if (self.pos_x <= paddle_venstre.pos_x + paddle_venstre.size_x and
-            self.pos_x + self.size_x >= paddle_venstre.pos_x):
+            self.pos_x + self.size_x >= paddle_venstre.pos_x and
+            self.pos_y + self.size_y >= paddle_venstre.pos_y and
+            self.pos_y <= paddle_venstre.pos_y + paddle_venstre.size_y):
             self._hastighet_x *= -1
             self.pos_x = paddle_venstre.pos_x + paddle_venstre.size_x
 
         #kollisjon høyre paddle
         if (self.pos_x + self.size_x >= paddle_hoyre.pos_x and
-            self.pos_x <= paddle_hoyre.pos_x + paddle_hoyre.size_x):
+            self.pos_x <= paddle_hoyre.pos_x + paddle_hoyre.size_x and
+            self.pos_y + self.size_y >= paddle_hoyre.pos_y and
+            self.pos_y <= paddle_hoyre.pos_y + paddle_hoyre.size_y):
             self._hastighet_x *= -1
             self.pos_x = paddle_hoyre.pos_x - self.size_x
 

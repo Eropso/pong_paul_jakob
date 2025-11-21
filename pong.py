@@ -13,6 +13,8 @@ skjerm = pygame.display.set_mode((bredde, hoyde))
 pygame.display.set_caption('Pong')
 clock = pygame.time.Clock()
 
+ball = SpillObjekt(400, 300, 20, 20)
+
 class Spill:
     def __init__(self):
         self.aktiv = True
@@ -22,7 +24,11 @@ class Spill:
             for hendelse in pygame.event.get():
                 if hendelse.type == pygame.QUIT:
                     self.aktiv = False
-            clock.tick(FPS)
 
+        
+            ball.tegn()
+
+            pygame.display.flip()
+            clock.tick(FPS)
 
 Spill().loop()

@@ -5,13 +5,15 @@ class Paddle(SpillObjekt):
     def __init__(self, posisjon_x:int, posisjon_y:int, storrelse_x:int, storrelse_y:int, hastighet:int):
         super().__init__(posisjon_x, posisjon_y, storrelse_x, storrelse_y)
         self.hastighet = hastighet
+        
     def bevege_opp(self):
-        self.rect.y -= self.hastighet
+        if self.pos_y > 0:
+            self.pos_y -= self.hastighet
 
     def bevege_ned(self):
-        self.rect.y += self.hastighet
+        if self.pos_y + self.size_y < 600:
+            self.pos_y += self.hastighet
 
-            
 
 
 

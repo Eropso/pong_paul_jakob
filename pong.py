@@ -14,8 +14,8 @@ pygame.display.set_caption('Pong')
 clock = pygame.time.Clock()
 
 ball = Ball(380, 280, 20, 20, 5, 5)
-paddle_venstre = Paddle(50, 250, 20, 100, 5)
-paddle_hoyre = Paddle(730, 250, 20, 100, 5)
+paddle_venstre = Paddle(50, 250, 20, 100, 10)
+paddle_hoyre = Paddle(730, 250, 20, 100, 10)
 
 class Spill:
     def __init__(self):
@@ -28,6 +28,20 @@ class Spill:
                     self.aktiv = False
 
             ball.oppdater()
+
+            taster = pygame.key.get_pressed()
+
+            #Spiller venstre
+            if taster[pygame.K_w]:
+                paddle_venstre.bevege_opp()
+            if taster[pygame.K_s]:
+                paddle_venstre.bevege_ned()
+            
+            #Spiller høyre
+            if taster[pygame.K_UP]:
+                paddle_hoyre.bevege_opp()
+            if taster[pygame.K_DOWN]:
+                paddle_hoyre.bevege_ned()
 
             skjerm.fill((0, 0, 0))
 

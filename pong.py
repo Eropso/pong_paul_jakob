@@ -13,7 +13,7 @@ skjerm = pygame.display.set_mode((bredde, hoyde))
 pygame.display.set_caption('Pong')
 clock = pygame.time.Clock()
 
-ball = SpillObjekt(400, 300, 20, 20)
+ball = SpillObjekt(380, 280, 20, 20)
 paddle_venstre = Paddle(50, 250, 20, 100, 5)
 paddle_hoyre = Paddle(730, 250, 20, 100, 5)
 

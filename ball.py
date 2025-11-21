@@ -32,3 +32,8 @@ class Ball(SpillObjekt):
         # kollisjon topp, bunn
         if self.pos_y <= 0 or self.pos_y >= hoyde - self.size_y:
             self._hastighet_y *= -1
+
+        if self.pos_x <= 0 or self.pos_x >= bredde - self.size_y:
+            self.pos_x = bredde/2 - self.size_x
+            self.pos_y = hoyde/2 - self.size_y
+            self._hastighet_x *= -1

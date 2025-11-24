@@ -3,7 +3,7 @@ from ball import Ball
 from paddle import Paddle
 pygame.init()
  
-font = pygame.font.SysFont(None, 24)
+font = pygame.font.SysFont('Impact', 24)
 
 bredde, hoyde = 800, 600
 hvit = (255, 255, 255)

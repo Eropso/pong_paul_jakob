@@ -43,8 +43,10 @@ class Ball(SpillObjekt):
         if self.pos_y <= 0 or self.pos_y >= hoyde - self.size_y:
             self._hastighet_y *= -1
 
-        # Når noen har scoret
-        if self.pos_x <= 0 or self.pos_x >= bredde - self.size_y:
+            
+    def sjekk_score(self):
+        # Ball går ut venstre (høyre scorer)
+        if self.pos_x <= 0:
             self.pos_x = bredde/2 - self.size_x
             self.pos_y = hoyde/2 - self.size_y
             if self._hastighet_x > 0:
@@ -52,3 +54,17 @@ class Ball(SpillObjekt):
             else:
                 self._hastighet_x = -7
             self._hastighet_x *= -1
+            return "hoyre"
+
+        # Ball går ut høyre (venstre scorer)
+        if self.pos_x >= bredde - self.size_x:
+            self.pos_x = bredde/2 - self.size_x
+            self.pos_y = hoyde/2 - self.size_y
+            if self._hastighet_x > 0:
+                self._hastighet_x = 7
+            else:
+                self._hastighet_x = -7
+            self._hastighet_x *= -1
+            return "venstre"
+        
+        return None

@@ -5,6 +5,7 @@ from spillObjekt import SpillObjekt
 pygame.init()
  
 
+
 bredde, hoyde = 800, 600
 hvit = (255, 255, 255)
 FPS = 60
@@ -20,6 +21,9 @@ paddle_hoyre = Paddle(730, 250, 20, 100, 10)
 class Spill:
     def __init__(self):
         self.aktiv = True
+        self.poeng_hoyre = 0
+        self.poeng_venstre = 0
+
     
     def loop(self):
         while self.aktiv == True:
@@ -29,6 +33,12 @@ class Spill:
 
             ball.kollisjon(paddle_venstre, paddle_hoyre)
             ball.oppdater()
+            # Sjekk om noen har scoret
+            scorer = ball.sjekk_score()
+            if scorer == "hoyre":
+                self.poeng_hoyre += 1
+            elif scorer == "venstre":
+                self.poeng_venstre += 1
 
             taster = pygame.key.get_pressed()
 

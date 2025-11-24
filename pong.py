@@ -57,11 +57,11 @@ class Spill:
             skjerm.fill((0, 0, 0))
 
             # Viser score
-            poeng1 = f'{self.poeng_hoyre}'
+            poeng1 = f'{self.poeng_venstre}'
             cords = font.render(poeng1, True, (255,255,255))
             skjerm.blit(cords, (80, 20))
 
-            poeng2 = f'{self.poeng_venstre}'
+            poeng2 = f'{self.poeng_hoyre}'
             cords = font.render(poeng2, True, (255,255,255))
             skjerm.blit(cords, (bredde - 90, 20))
 

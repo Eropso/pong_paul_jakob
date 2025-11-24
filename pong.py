@@ -1,10 +1,9 @@
 import pygame
 from ball import Ball
 from paddle import Paddle
-from spillObjekt import SpillObjekt
 pygame.init()
  
-
+font = pygame.font.SysFont(None, 24)
 
 bredde, hoyde = 800, 600
 hvit = (255, 255, 255)
@@ -23,7 +22,6 @@ class Spill:
         self.aktiv = True
         self.poeng_hoyre = 0
         self.poeng_venstre = 0
-
     
     def loop(self):
         while self.aktiv == True:
@@ -33,12 +31,14 @@ class Spill:
 
             ball.kollisjon(paddle_venstre, paddle_hoyre)
             ball.oppdater()
+
             # Sjekk om noen har scoret
             scorer = ball.sjekk_score()
             if scorer == "hoyre":
                 self.poeng_hoyre += 1
             elif scorer == "venstre":
                 self.poeng_venstre += 1
+
 
             taster = pygame.key.get_pressed()
 
@@ -56,6 +56,16 @@ class Spill:
 
             skjerm.fill((0, 0, 0))
 
+            # Viser score
+            poeng1 = f'{self.poeng_hoyre}'
+            cords = font.render(poeng1, True, (255,255,255))
+            skjerm.blit(cords, (80, 20))
+
+            poeng2 = f'{self.poeng_venstre}'
+            cords = font.render(poeng2, True, (255,255,255))
+            skjerm.blit(cords, (bredde - 90, 20))
+
+            # Kjører at ballen og paddles blir tegnet
             ball.tegn()
             paddle_venstre.tegn()
             paddle_hoyre.tegn()

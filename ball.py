@@ -1,5 +1,5 @@
 from spillObjekt import SpillObjekt
-
+import random
 bredde, hoyde = 800, 600
 
 class Ball(SpillObjekt):
@@ -18,7 +18,12 @@ class Ball(SpillObjekt):
             self.pos_x + self.size_x >= paddle_venstre.pos_x and
             self.pos_y + self.size_y >= paddle_venstre.pos_y and
             self.pos_y <= paddle_venstre.pos_y + paddle_venstre.size_y):
+            if self._hastighet_x > 0:
+                self._hastighet_x += 0.2
+            else:
+                self._hastighet_x -= 0.2
             self._hastighet_x *= -1
+            self._hastighet_y = random.randint(-5, 5)
             self.pos_x = paddle_venstre.pos_x + paddle_venstre.size_x
 
         #kollisjon høyre paddle
@@ -26,14 +31,24 @@ class Ball(SpillObjekt):
             self.pos_x <= paddle_hoyre.pos_x + paddle_hoyre.size_x and
             self.pos_y + self.size_y >= paddle_hoyre.pos_y and
             self.pos_y <= paddle_hoyre.pos_y + paddle_hoyre.size_y):
+            if self._hastighet_x > 0:
+                self._hastighet_x += 0.2
+            else:
+                self._hastighet_x -= 0.2
             self._hastighet_x *= -1
+            self._hastighet_y = random.randint(-5, 5)
             self.pos_x = paddle_hoyre.pos_x - self.size_x
 
         # kollisjon topp, bunn
         if self.pos_y <= 0 or self.pos_y >= hoyde - self.size_y:
             self._hastighet_y *= -1
 
+        # Når noen har scoret
         if self.pos_x <= 0 or self.pos_x >= bredde - self.size_y:
             self.pos_x = bredde/2 - self.size_x
             self.pos_y = hoyde/2 - self.size_y
+            if self._hastighet_x > 0:
+                self._hastighet_x = 7
+            else:
+                self._hastighet_x = -7
             self._hastighet_x *= -1

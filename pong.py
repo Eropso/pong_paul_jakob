@@ -63,7 +63,7 @@ class Spill:
             skjerm.fill((0, 0, 0))
 
             # Sjekker vinner
-            if self.poeng_venstre == 7:
+            if self.poeng_venstre == 4:
                 vinner1 = 'Spiller 1 Vinner'
                 skjerm.blit(restart_cords, (bredde/2 - 85, hoyde/2 - 85))
                 cords = font.render(vinner1, True, (255,255,255))
@@ -76,7 +76,7 @@ class Spill:
                     self.poeng_hoyre = 0
                     self.poeng_venstre = 0
                 
-            elif self.poeng_hoyre == 7:
+            elif self.poeng_hoyre == 4:
                 vinner2 = 'Spiller 2 Vinner'
                 skjerm.blit(restart_cords, (bredde/2 - 85, hoyde/2 - 85))
                 cords = font.render(vinner2, True, (255,255,255))

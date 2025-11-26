@@ -19,11 +19,11 @@ class Ball(SpillObjekt):
             self.pos_y + self.size_y >= paddle_venstre.pos_y and
             self.pos_y <= paddle_venstre.pos_y + paddle_venstre.size_y):
             if self._hastighet_x > 0:
-                self._hastighet_x += 0.2
+                self._hastighet_x += 0.25
             else:
-                self._hastighet_x -= 0.2
+                self._hastighet_x -= 0.25
             self._hastighet_x *= -1
-            self._hastighet_y = random.randint(-5, 5)
+            self._hastighet_y = random.randint(-7, 7)
             self.pos_x = paddle_venstre.pos_x + paddle_venstre.size_x
 
         #kollisjon høyre paddle
@@ -32,11 +32,11 @@ class Ball(SpillObjekt):
             self.pos_y + self.size_y >= paddle_hoyre.pos_y and
             self.pos_y <= paddle_hoyre.pos_y + paddle_hoyre.size_y):
             if self._hastighet_x > 0:
-                self._hastighet_x += 0.2
+                self._hastighet_x += 0.25
             else:
-                self._hastighet_x -= 0.2
+                self._hastighet_x -= 0.25
             self._hastighet_x *= -1
-            self._hastighet_y = random.randint(-5, 5)
+            self._hastighet_y = random.randint(-7, 7)
             self.pos_x = paddle_hoyre.pos_x - self.size_x
 
         # kollisjon topp, bunn

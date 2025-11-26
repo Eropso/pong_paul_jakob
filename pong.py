@@ -59,14 +59,14 @@ class Spill:
             skjerm.fill((0, 0, 0))
 
             # Sjekker vinner
-            if self.poeng_venstre == 3:
+            if self.poeng_venstre == 7:
                 vinner1 = 'Spiller 1 Vinner'
                 cords = font.render(vinner1, True, (255,255,255))
                 skjerm.blit(cords, (bredde/2 - 80, 50))
                 ball._hastighet_x = 0
                 ball._hastighet_y = 0
                 
-            elif self.poeng_hoyre == 3:
+            elif self.poeng_hoyre == 7:
                 vinner2 = 'Spiller 2 Vinner'
                 cords = font.render(vinner2, True, (255,255,255))
                 skjerm.blit(cords, (bredde/2 - 80, 50))

@@ -17,6 +17,10 @@ ball = Ball(380, 280, 20, 20, 7, 7)
 paddle_venstre = Paddle(50, 250, 20, 100, 10)
 paddle_hoyre = Paddle(730, 250, 20, 100, 10)
 
+restart = 'Trykk For Restart'
+restart_cords = font.render(restart, True, (255,255,255))
+
+
 class Spill:
     def __init__(self):
         self.aktiv = True
@@ -61,17 +65,29 @@ class Spill:
             # Sjekker vinner
             if self.poeng_venstre == 7:
                 vinner1 = 'Spiller 1 Vinner'
+                skjerm.blit(restart_cords, (bredde/2 - 85, hoyde/2 - 85))
                 cords = font.render(vinner1, True, (255,255,255))
                 skjerm.blit(cords, (bredde/2 - 80, 50))
                 ball._hastighet_x = 0
                 ball._hastighet_y = 0
+                if hendelse.type == pygame.MOUSEBUTTONDOWN:
+                    ball._hastighet_x = 7
+                    ball._hastighet_y = 7
+                    self.poeng_hoyre = 0
+                    self.poeng_venstre = 0
                 
             elif self.poeng_hoyre == 7:
                 vinner2 = 'Spiller 2 Vinner'
+                skjerm.blit(restart_cords, (bredde/2 - 85, hoyde/2 - 85))
                 cords = font.render(vinner2, True, (255,255,255))
                 skjerm.blit(cords, (bredde/2 - 80, 50))
                 ball._hastighet_x = 0
                 ball._hastighet_y = 0
+                if hendelse.type == pygame.MOUSEBUTTONDOWN:
+                    ball._hastighet_x = 7
+                    ball._hastighet_y = 7
+                    self.poeng_hoyre = 0
+                    self.poeng_venstre = 0
 
 
             # Viser score

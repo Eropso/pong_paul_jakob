@@ -13,6 +13,7 @@ skjerm = pygame.display.set_mode((bredde, hoyde))
 pygame.display.set_caption('Pong')
 clock = pygame.time.Clock()
 
+#lage objektene
 ball = Ball(380, 280, 20, 20, 7, 7)
 paddle_venstre = Paddle(50, 250, 20, 100, 10)
 paddle_hoyre = Paddle(730, 250, 20, 100, 10)
@@ -27,6 +28,7 @@ class Spill:
         self.poeng_hoyre = 0
         self.poeng_venstre = 0
     
+    #spill løkken
     def loop(self):
         while self.aktiv == True:
             for hendelse in pygame.event.get():
@@ -62,27 +64,36 @@ class Spill:
 
             skjerm.fill((0, 0, 0))
 
-            # Sjekker vinner
+            # Sjekker vinner spiller 1 (venstre)
             if self.poeng_venstre == 4:
                 vinner1 = 'Spiller 1 Vinner'
                 skjerm.blit(restart_cords, (bredde/2 - 85, hoyde/2 - 85))
                 cords = font.render(vinner1, True, (255,255,255))
                 skjerm.blit(cords, (bredde/2 - 80, 50))
+
+                #stopper ballen
                 ball._hastighet_x = 0
                 ball._hastighet_y = 0
+
+                #restart ved klikk
                 if hendelse.type == pygame.MOUSEBUTTONDOWN:
                     ball._hastighet_x = 7
                     ball._hastighet_y = 7
                     self.poeng_hoyre = 0
                     self.poeng_venstre = 0
-                
+
+            # Sjekker vinner spiller 2 (høyre)
             elif self.poeng_hoyre == 4:
                 vinner2 = 'Spiller 2 Vinner'
                 skjerm.blit(restart_cords, (bredde/2 - 85, hoyde/2 - 85))
                 cords = font.render(vinner2, True, (255,255,255))
                 skjerm.blit(cords, (bredde/2 - 80, 50))
+
+                #stopper ballen
                 ball._hastighet_x = 0
                 ball._hastighet_y = 0
+
+                #restart ved klikk
                 if hendelse.type == pygame.MOUSEBUTTONDOWN:
                     ball._hastighet_x = 7
                     ball._hastighet_y = 7
@@ -99,11 +110,12 @@ class Spill:
             cords = font.render(poeng2, True, (255,255,255))
             skjerm.blit(cords, (bredde - 90, 20))
 
-            # Kjører at ballen og paddles blir tegnet
+            # tegner spillobjektene oppå bakgrunn
             ball.tegn()
             paddle_venstre.tegn()
             paddle_hoyre.tegn()
 
+            # oppdater skjerm
             pygame.display.flip()
             clock.tick(FPS)
 

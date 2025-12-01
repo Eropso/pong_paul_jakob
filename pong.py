@@ -19,7 +19,7 @@ paddle_venstre = Paddle(50, 250, 20, 100, 10)
 paddle_hoyre = Paddle(730, 250, 20, 100, 10)
 
 restart = 'Trykk For Restart'
-restart_cords = font.render(restart, True, (255,255,255))
+restart_setup = font.render(restart, True, (255,255,255))
 
 
 class Spill:
@@ -62,14 +62,15 @@ class Spill:
             if taster[pygame.K_DOWN]:
                 paddle_hoyre.bevege_ned()
 
+            # Restarter sjermen hver gang løkken kjører
             skjerm.fill((0, 0, 0))
 
             # Sjekker vinner spiller 1 (venstre)
             if self.poeng_venstre == 4:
                 vinner1 = 'Spiller 1 Vinner'
-                skjerm.blit(restart_cords, (bredde/2 - 85, hoyde/2 - 85))
-                cords = font.render(vinner1, True, (255,255,255))
-                skjerm.blit(cords, (bredde/2 - 80, 50))
+                skjerm.blit(restart_setup, (bredde/2 - 85, hoyde/2 - 85))
+                vinner1_setup = font.render(vinner1, True, (255,255,255))
+                skjerm.blit(vinner1_setup, (bredde/2 - 80, 50))
 
                 #stopper ballen
                 ball._hastighet_x = 0
@@ -85,9 +86,9 @@ class Spill:
             # Sjekker vinner spiller 2 (høyre)
             elif self.poeng_hoyre == 4:
                 vinner2 = 'Spiller 2 Vinner'
-                skjerm.blit(restart_cords, (bredde/2 - 85, hoyde/2 - 85))
-                cords = font.render(vinner2, True, (255,255,255))
-                skjerm.blit(cords, (bredde/2 - 80, 50))
+                skjerm.blit(restart_setup, (bredde/2 - 85, hoyde/2 - 85))
+                vinner2_setup = font.render(vinner2, True, (255,255,255))
+                skjerm.blit(vinner2_setup, (bredde/2 - 80, 50))
 
                 #stopper ballen
                 ball._hastighet_x = 0
@@ -103,12 +104,12 @@ class Spill:
 
             # Viser score
             poeng1 = f'{self.poeng_venstre}'
-            cords = font.render(poeng1, True, (255,255,255))
-            skjerm.blit(cords, (80, 20))
+            poeng1_setup = font.render(poeng1, True, (255,255,255))
+            skjerm.blit(poeng1_setup, (80, 20))
 
             poeng2 = f'{self.poeng_hoyre}'
-            cords = font.render(poeng2, True, (255,255,255))
-            skjerm.blit(cords, (bredde - 90, 20))
+            poeng2_setup = font.render(poeng2, True, (255,255,255))
+            skjerm.blit(poeng2_setup, (bredde - 90, 20))
 
             # tegner spillobjektene oppå bakgrunn
             ball.tegn()

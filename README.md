@@ -38,3 +38,4 @@ Vi skal gjenskape spillet **Pong** med **Pygame** og ved bruk av **objektoriente
 
 ## Klassediagram
 
+![Klassediagram](bilde/Klassediagram.jpg)

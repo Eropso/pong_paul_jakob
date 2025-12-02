@@ -1,4 +1,4 @@
-# Pong – Planlegging
+# Pong
 
 ## Beskrivelse
 Vi skal gjenskape spillet **Pong** med **Pygame** og ved bruk av **objektorientert programmering**.

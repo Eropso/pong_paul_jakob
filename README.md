@@ -36,32 +36,5 @@ Vi skal gjenskape spillet **Pong** med **Pygame** og ved bruk av **objektoriente
 
 ---
 
-## Utviklingsmetode
-Smidig utvikling gjør at vi kan teste spillet etter at hver ny funksjon er lagt til, og gir rask oversikt over når noe ikke fungerer og hva som må fikses.  
-I tillegg kan vi gjøre justeringer underveis, og det passer bra ved samarbeid fordi arbeidet kan deles opp i små deler.  
-
-Fossefallmetoden derimot gjør at man må gå flere steg tilbake hvis man oppdager feil.
-
----
-
-## Fremtidig arbeid
-
-### Paul
-- Paddle  
-- Opp & ned-bevegelse  
-- Paddle beveger seg riktig  
-
-### Jakob
-- Ball  
-- Ballen spretter riktig  
-- Kollisjon med paddle og vegger  
-- Reset av ball etter poeng  
-
-### Felles – Spillklassen
-Kan deles opp i mindre deler.  
-Paul kan lage objektene, og Jakob kan fikse poengsystemet og reset-funksjonen.
-
----
-
 ## Klassediagram
-*(Legges til senere)*
+
